@@ -9,6 +9,10 @@
     font-family: 'Raleway', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container {
     width: 1050px;
     margin: 0 auto;
@@ -210,6 +214,11 @@
     outline: none;
 }
 
+.banner-next:focus,
+.banner-prev:focus {
+    outline: none;
+}
+
 .banner-next {
     order: 4;
 }
@@ -242,6 +251,7 @@
     align-items: center;
     text-align: center;
     margin:0 70px 0 70px;
+    width: 50%;
 }
 
 .banner-title {
@@ -274,11 +284,7 @@
     position: relative;
     opacity: 0;
     transition: 1s 0.5s;
-    width: 150%;
-}
-
-.second-img {
-    width: 390px;
+    width: 337px;
     height: auto;
 }
 

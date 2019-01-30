@@ -1,4 +1,4 @@
-# sit_on_chair
-Basic page layout
+# Sit on Chair
+Basic layout using CSS and Vanilla JS.
 
-https://anetarolnik.github.io/sit_on_chair/
+[See the page](https://anetarolnik.github.io/sit_on_chair/)

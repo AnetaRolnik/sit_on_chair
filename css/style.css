@@ -46,11 +46,13 @@ html {
     background: var(--color);
     border-radius: 6px;
     text-transform: uppercase;
-    padding:10px;
-    color: white;
     text-decoration: none;
+    text-align: center;
+    padding: 10px 30px;
+    color: white;
     border: 0;
     transition: 0.5s;
+    font-size: 24px;
 }
 
 .btn:hover{
@@ -163,28 +165,28 @@ html {
     font-size: 20px;
 }
 
-.page-nav-sublist:before {
+.page-nav-sublist::before,
+.page-nav-sublist::after {
     content: "";
-    height: 20px;
-    width: 100%;
-    background: transparent;
     display: block;
     position: absolute;
-    left: 0;
     top: -20px;
 }
 
+.page-nav-sublist:before {
+    width: 100%;
+    height: 20px;
+    background: transparent;
+    left: 0;
+}
+
 .page-nav-sublist:after {
-    content: "";
-    display: block;
     width: 0;
     height: 0;
     border: 10px solid transparent;
     border-bottom-color: #000000;
-    top: -20px;
     left: 50%;
     transform: translate(-50%, 0);
-    position: absolute;
 }
 
 .page-nav-sublist a {
@@ -243,6 +245,8 @@ html {
     height: 100%;
     display: flex;
     align-items: center;
+    opacity: 0;
+    transition: 1s opacity;
 }
 
 .banner-slide-cnt {
@@ -252,6 +256,10 @@ html {
     text-align: center;
     margin:0 70px 0 70px;
     width: 50%;
+    top: -30px;
+    position: relative;
+    opacity: 0;
+    transition: 1s 1s;
 }
 
 .banner-title {
@@ -268,15 +276,7 @@ html {
 }
 
 .btn-link {
-    font-size: 25px;
-    padding: 10px 30px 10px 30px;
     margin-top: 40px;
-}
-
-/*animation - slider */
-.banner-slide {
-    opacity: 0;
-    transition: 1s opacity;
 }
 
 .banner-slide-img {
@@ -288,24 +288,13 @@ html {
     height: auto;
 }
 
-.banner-slide-cnt {
-    top: -30px;
-    position: relative;
-    opacity: 0;
-    transition: 1s 1s;
-}
-
 .banner--slide--active {
     opacity: 1;
     z-index: 1;
 }
 
-.banner--slide--active .banner-slide-img {
-    top: 0;
-    opacity: 1;
-}
-
-.banner--slide--active .banner-slide-cnt {
+.banner--slide--active .banner-slide-img,
+.banner--slide--active .banner-slide-cnt{
     top: 0;
     opacity: 1;
 }
@@ -359,15 +348,20 @@ html {
     position: relative;
 }
 
-[class*="plan"]::after {
+[class*="plan"]::after,
+[class*="plan"]::before {
     content: "";
+    border-radius: 50%;
+    position: absolute;
+
+}
+
+[class*="plan"]::after {
     height:25px;
     width: 25px;
-    border-radius: 50%;
     background: #ccc;
-    position: absolute;
-    top:-17.5px;
-    left:calc(159.3px - 12.5px);
+    top:-17px;
+    left:calc(159px - 12px);
 }
 
 .second-plan::after {
@@ -375,14 +369,11 @@ html {
 }
 
 [class*="plan"]::before {
-    content: "";
     height: 50px;
     width: 50px;
-    border-radius: 50%;
     background: white;
-    position: absolute;
     top:-30px;
-    left:calc(159.3px - 25px);
+    left:calc(159px - 25px);
     border: 1px solid #ccc;
 }
 
@@ -403,20 +394,21 @@ html {
 }
 
 .first-plan h1,
+.second-plan h1,
 .third-plan h1 {
-    color: var(--color);
     text-transform: uppercase;
     font-size: 20px;
     font-weight: 600;
     margin-top: 30px;
 }
 
+.first-plan h1,
+.third-plan h1 {
+    color: var(--color);
+}
+
 .second-plan h1 {
     color: white;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 600;
-    margin-top: 30px;
 }
 
 .circle {
@@ -452,11 +444,8 @@ html {
     color: #ccc;
 }
 
-.second-plan .amount {
-    color: var(--color);
-}
-
-.second-plan .time-span {
+.second-plan .amount,
+.second-plan .time-span{
     color: var(--color);
 }
 
@@ -473,37 +462,26 @@ html {
     width: 315px;
 }
 
-.first-plan .services p:first-child {
-    background: #ccc;
+.services p {
     padding: 10px;
 }
 
-.first-plan .services p:last-child {
+.first-plan .services p:first-child,
+.third-plan .services p:first-child,
+.third-plan .services p:nth-child(3){
+    background: #ccc;
+}
+
+.first-plan .services p:last-child,
+.second-plan .services p:nth-child(2),
+.third-plan .services p:nth-child(2),
+.third-plan .services p:last-child {
     background: #eee;
-    padding: 10px;
 }
 
 .second-plan .services p:first-child,
 .second-plan .services p:last-child {
     background: white;
-    padding: 10px;
-}
-
-.second-plan .services p:nth-child(2) {
-  background: #eee;
-  padding: 10px;
-}
-
-.third-plan .services p:first-child,
-.third-plan .services p:nth-child(3) {
-    background: #ccc;
-    padding: 10px;
-}
-
-.third-plan .services p:nth-child(2),
-.third-plan .services p:last-child {
-    background: #eee;
-    padding: 10px;
 }
 
 .btn-prices {
@@ -535,7 +513,7 @@ html {
     font-size: 18px;
 }
 
-.application header.align_right{
+.summary_header{
     text-align: right;
 }
 
@@ -584,10 +562,10 @@ html {
     cursor: pointer;
 }
 
-.checkboxTransport label::before, .checkboxTransport label::after {
+.checkboxTransport label::before,
+.checkboxTransport label::after {
     border: 1px solid #27c7ab;
     content: "";
-    display: block;
     left: 0;
     height: 48px;
     position: absolute;
@@ -606,11 +584,10 @@ html {
 }
 
 .image_part img{
-    margin-top: 110px;
-    margin-left: 38px;
+    margin: 110px 0 0 38px;
 }
 
-.application .green_bell {
+.application .bell {
     background-color: #24baa0;
     width: 200px;
     height: 6px;
@@ -626,75 +603,64 @@ html {
     margin-top: 50px;
 }
 
-.application .green_button {
-    background-color: #27c7ab;
-    color: white;
-    text-align:center;
-    text-transform: uppercase;
-    width: 200px;
-    padding: 10px 30px;
-    font-size: 24px;
+.btn-order {
+    margin: 20px 0 0 30px;
+}
+
+.panel_left,
+.panel_right {
     display: inline-block;
-    font-family: 'ralewaymedium', Arial, Tahoma, sans-serif;
-    margin-top: 20px;
-    margin-left: 29px;
-    border-radius: 8px;
-    text-decoration: none;
+    vertical-align: top;
+    padding-bottom:10px;
+    border-bottom:1px solid #e7e7e7;
+    height: 135px;
 }
 
 .panel_left {
-    display: inline-block;
     width: 185px;
-    vertical-align: top;
-    padding-bottom:10px;
-    border-bottom:1px solid #e7e7e7;
-    height: 135px;
 }
 
 .panel_right {
-    display: inline-block;
     width: 100px;
     border-left:1px solid #e7e7e7;
     text-align: right;
-    vertical-align: top;
-    padding-bottom:10px;
-    border-bottom:1px solid #e7e7e7;
-    height: 135px;
 }
 
-.panel_left h4 , .panel_right h4{
+.panel_left h4 ,
+.panel_right h4{
     color: #24baa0;
     font-size: 23px;
 }
 
-.panel_left span{
+.panel_left span,
+.panel_right span {
     margin-top:10px;
     font-size: 22px;
-    color: #5b5a5a;
     display: block;
+}
+
+.panel_left span{
+    color: #5b5a5a;
 }
 
 .panel_right span {
-    display: block;
-    font-size: 22px;
     color: #24baa0;
-    margin-top:10px;
+}
+.sum_label,
+.sum {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 22px;
 }
 
 .sum_label{
-    display: inline-block;
     width: 185px;
-    margin-top: 10px;
-    font-size: 22px;
     color: #5b5a5a;
 }
 
 .sum {
-    display: inline-block;
     width: 100px;
     text-align: right;
-    margin-top: 10px;
-    font-size: 22px;
     color: #24baa0;
 }
 
@@ -719,7 +685,7 @@ html {
     padding-bottom: 10px;
     list-style: none;
     margin: 0;
-    left: 0px;
+    left: 0;
     z-index: 2;
     position: absolute;
     top: 54px;
@@ -757,9 +723,7 @@ html {
 
 .form-img {
     height: 210px;
-    background: url("../images/red_chair.png");
-    background-repeat: no-repeat;
-    background position: center;
+    background: url("../images/red_chair.png") no-repeat center;
     margin-top: -30px;
     margin-bottom: 37px;
 }
@@ -826,9 +790,7 @@ html {
 }
 
 .checkbox-input:checked + .checkbox-mark{
-    background: url(../images/form_ok.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
+    background: url(../images/form_ok.jpg) no-repeat center;
 }
 
 .form-submit {
